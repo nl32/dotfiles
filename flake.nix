@@ -26,8 +26,7 @@
       };
     }
     ))
-    // (
-      let
+    // (let
         homeManagerModules =
           { system
           , username
@@ -47,7 +46,7 @@
           "ethanbickel@Ethans-Macbook-Pro-2.local" = {
             system = "aarch64-darwin";
             username = "ethanbickel";
-            homeDirectory = "/Users/ethanbickel/";
+            homeDirectory = "/Users/ethanbickel";
             stateVersion = "23.11";
           };
           "ebickel@nixos" = {
