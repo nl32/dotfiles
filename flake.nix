@@ -19,6 +19,9 @@
     , ...
     }:
     (flake-utils.lib.eachDefaultSystem (system:
+    let
+      pkgs = nixpkgs.legacyPackages.${system};
+    in
     {
       defaultApp = {
         type = "app";
@@ -43,7 +46,7 @@
             })
           ];
         rawHomeManagerConfigurations = {
-          "ethanbickel@Ethans-Macbook-Pro-2.local" = {
+          "ethanbickel@Ethans-MacBook-Pro-2.local" = {
             system = "aarch64-darwin";
             username = "ethanbickel";
             homeDirectory = "/Users/ethanbickel";

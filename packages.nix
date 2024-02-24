@@ -8,7 +8,7 @@ kitty
 curl
 gnumake
 ripgrep
-grep
+gnugrep
 wget
 zsh
 tree
