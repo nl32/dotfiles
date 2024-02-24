@@ -12,10 +12,8 @@ treesitterWithGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
       p.luadoc
       p.luap
       p.markdown
-      p.jsx
       p.comment
       p.css
-      p.zsh
       p.typescript
       p.tsx
       p.astro
@@ -30,7 +28,7 @@ treesitterWithGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
 in
 {
   home.packages = with pkgs; [
-    ripgred
+    ripgrep
       fd
       lua-language-server
       rust-analyzer-unwrapped
@@ -43,7 +41,7 @@ in
     ];
   };
   home.file.".config/nvim/" = {
-    source = "./assets/nvim/";
+    source = ./assets/nvim;
     recursive = true;
   };
   home.file."./.local/share/nvim/nix/nvim-treesitter/" = {
