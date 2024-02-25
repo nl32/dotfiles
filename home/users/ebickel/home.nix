@@ -30,5 +30,6 @@
     ../../programs/gh.nix
     ../../programs/ssh.nix
     ../../programs/firefox.nix
+    ../../programs/hyprland
   ];
 }
