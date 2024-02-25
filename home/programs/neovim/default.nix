@@ -6,7 +6,6 @@
     rust-analyzer-unwrapped
     fzf
     alejandra
-    libgcc
   ];
   programs.neovim = {
     enable = true;
