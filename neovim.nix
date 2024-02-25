@@ -1,6 +1,6 @@
-{ pkgs, ...}:
-let
-treesitterWithGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+{pkgs, ...}: let
+  treesitterWithGrammars = (
+    pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
       p.bash
       p.c
       p.diff
@@ -23,29 +23,27 @@ treesitterWithGrammars = (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
       p.rust
       p.toml
       p.yaml
-])
-    );
-in
-{
+    ])
+  );
+in {
   home.packages = with pkgs; [
     ripgrep
-      fd
-      lua-language-server
-      rust-analyzer-unwrapped
+    fd
+    lua-language-server
+    rust-analyzer-unwrapped
+    fzf
+    alejandra
   ];
   programs.neovim = {
     enable = true;
     vimAlias = true;
     plugins = [
-      treesitterWithGrammars
+      pkgs.vimPlugins.lazy-nvim
+      pkgs.vimPlugins.telescope-fzf-native-nvim
     ];
   };
   home.file.".config/nvim/" = {
     source = ./assets/nvim;
     recursive = true;
-  };
-  home.file."./.local/share/nvim/nix/nvim-treesitter/" = {
-    recursive = true;
-    source = treesitterWithGrammars;
   };
 }
