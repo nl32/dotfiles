@@ -5,6 +5,7 @@
   ...
 }: {
   programs.home-manager.enable = true;
+  home.stateVersion = "23.11";
   home.username = "ebickel";
   home.homeDirectory = "/home/ebickel/";
   home.sessionVariables = {
@@ -14,11 +15,18 @@
     kitty
     curl
     gnumake
-    rupgrep
+    ripgrep
     gnugrep
     wget
     tree
     neofetch
     obsidian
+  ];
+  imports = [
+    ../../programs/neovim
+    ../../programs/zsh.nix
+    ../../programs/git.nix
+    ../../programs/ssh.nix
+    ../../programs/firefox.nix
   ];
 }
