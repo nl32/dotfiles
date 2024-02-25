@@ -21,6 +21,7 @@
     tree
     neofetch
     obsidian
+    libgcc
   ];
   imports = [
     ../../programs/neovim
