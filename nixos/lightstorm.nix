@@ -6,6 +6,7 @@
 }: {
   imports = [
     ./hardware/lightstorm.nix
+    ./modules/common.nix
   ];
   environment.systemPackages = with pkgs; [
     neovim
@@ -14,6 +15,7 @@
     wget
     lazygit
     openssl
+    git
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -25,7 +27,7 @@
     };
   };
   networking = {
-    hostname = "lightstorm";
+    hostName = "lightstorm";
     networkmanager.enable = true;
   };
   time.timeZone = "America/Chicago";
@@ -46,7 +48,7 @@
   services.openssh.enable = true;
   services.xserver = {
     layout = "us";
-    xbkVariant = "";
+    xkbVariant = "";
   };
 
   programs.zsh.enable = true;
@@ -59,4 +61,5 @@
     packages = with pkgs; [
     ];
   };
+  system.stateVersion = "23.11";
 }
