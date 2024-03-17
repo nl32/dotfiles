@@ -11,10 +11,12 @@
   pkgs = inputs.nixpkgs.legacyPackages.x86_64-linux;
 in {
   _module.args = {inherit homeImports;};
-  homeConfigurations = {
-    "ebickel@lightstorm" = homeManagerConfiguration {
-      modules = homeImports."ebickel@lightstorm";
-      inherit pkgs extraSpecialArgs;
+  flake = {
+    homeConfigurations = {
+      "ebickel@lightstorm" = homeManagerConfiguration {
+        modules = homeImports."ebickel@lightstorm";
+        inherit pkgs extraSpecialArgs;
+      };
     };
   };
 }
