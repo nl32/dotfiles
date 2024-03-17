@@ -31,32 +31,12 @@
     nixpkgs,
     hyprlock,
     ...
-  } @ inputs: let
-    config = {
-      allowUnfree = true;
-      permittedInsecurePackages = ["electron-25.9.0"];
-    };
-    darwinPackages = import nixpkgs {
-      system = "aarch64-darwin";
-      inherit config;
-    };
-    specialArgs = {inherit inputs self;};
-  in
+  } @ inputs:
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         ./home/profiles
         ./nixos
       ];
-      flake = {
-        homeConfigurations = {
-          "ethanbickel@Ethans-MacBook-Pro-2.local" = home-manager.lib.homeManagerConfiguration {
-            pkgs = darwinPackages;
-            modules = [
-              ./home/users/ethanbickel/home.nix
-            ];
-          };
-        };
-      };
       systems = [
         "x86_64-linux"
         "aarch64-darwin"

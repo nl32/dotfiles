@@ -13,6 +13,18 @@ in {
   _module.args = {inherit homeImports;};
   flake = {
     homeConfigurations = {
+      "ethanbickel@Ethans-MacBook-Pro-2.local" = homeManagerConfiguration {
+        pkgs = inputs.nixpkgs {
+          system = "aarch64-darwin";
+          config = {
+            allowUnfree = true;
+          };
+        };
+        modules = [
+          ./home/users/ethanbickel/home.nix
+        ];
+        inherit extraSpecialArgs;
+      };
       "ebickel@lightstorm" = homeManagerConfiguration {
         modules = homeImports."ebickel@lightstorm";
         inherit pkgs extraSpecialArgs;
