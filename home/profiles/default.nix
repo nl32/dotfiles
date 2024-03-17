@@ -14,14 +14,14 @@ in {
   flake = {
     homeConfigurations = {
       "ethanbickel@Ethans-MacBook-Pro-2.local" = homeManagerConfiguration {
-        pkgs = inputs.nixpkgs {
+        pkgs = import inputs.nixpkgs {
           system = "aarch64-darwin";
           config = {
             allowUnfree = true;
           };
         };
         modules = [
-          ./home/users/ethanbickel/home.nix
+          ../users/ethanbickel/home.nix
         ];
         inherit extraSpecialArgs;
       };
