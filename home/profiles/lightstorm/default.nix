@@ -20,5 +20,6 @@
     ../../programs/browsers/firefox.nix
     ../../programs/wayland
     ../../programs
+    ../../services/system/polkit-agent.nix
   ];
 }
