@@ -48,28 +48,33 @@
     specialArgs = {inherit inputs self;};
   in
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
-      inherit inputs;
       imports = [
         ./home/profiles
       ];
-      homeConfigurations = {
-        "ethanbickel@Ethans-MacBook-Pro-2.local" = home-manager.lib.homeManagerConfiguration {
-          pkgs = darwinPackages;
-          modules = [
-            ./home/users/ethanbickel/home.nix
-          ];
+      flake = {
+        homeConfigurations = {
+          "ethanbickel@Ethans-MacBook-Pro-2.local" = home-manager.lib.homeManagerConfiguration {
+            pkgs = darwinPackages;
+            modules = [
+              ./home/users/ethanbickel/home.nix
+            ];
+          };
+        };
+        nixosConfigurations = {
+          lightstorm = inputs.nixpkgs.lib.nixosSystem {
+            inherit specialArgs;
+            system = "x86_64-linux";
+            pkgs = nixosPackages;
+            modules = [
+              ./nixos/lightstorm.nix
+              home-manager.nixosModules.home-manager
+            ];
+          };
         };
       };
-      nixosConfigurations = {
-        lightstorm = inputs.nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          system = "x86_64-linux";
-          pkgs = nixosPackages;
-          modules = [
-            ./nixos/lightstorm.nix
-            home-manager.nixosModules.home-manager
-          ];
-        };
-      };
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
     };
 }
