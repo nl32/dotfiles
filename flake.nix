@@ -21,7 +21,6 @@
     flake-utils,
     home-manager,
     nixpkgs,
-    nixos,
     hyprlock,
     ...
   } @ inputs: let
@@ -48,7 +47,7 @@
       };
     };
     nixosConfigurations = {
-      lightstorm = nixos.lib.nixosSystem {
+      lightstorm = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         pkgs = nixosPackages;
         modules = [
