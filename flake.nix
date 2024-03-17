@@ -36,11 +36,6 @@
       allowUnfree = true;
       permittedInsecurePackages = ["electron-25.9.0"];
     };
-    nixosPackages = import nixpkgs {
-      system = "x86_64-linux";
-      inherit config;
-    };
-
     darwinPackages = import nixpkgs {
       system = "aarch64-darwin";
       inherit config;
