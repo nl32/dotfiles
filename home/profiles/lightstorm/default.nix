@@ -1,16 +1,4 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
-  programs.home-manager.enable = true;
-  home.stateVersion = "23.11";
-  home.username = "ebickel";
-  home.homeDirectory = "/home/ebickel/";
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+{pkgs, ...}: {
   home.packages = with pkgs; [
     kitty
     curl
@@ -29,7 +17,8 @@
     ../../programs/git.nix
     ../../programs/gh.nix
     ../../programs/ssh.nix
-    ../../programs/browsers/firefox.nix
-    ../../programs/hyprland
+    ../../programs/firefox.nix
+    ../../programs/wayland
+    ../../programs
   ];
 }
