@@ -29,7 +29,6 @@ in {
     users.ebickel.imports = homeImports."ebickel@lightstorm";
     extraSpecialArgs = specialArgs;
   };
-  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   services.openssh.enable = true;
   services.xserver = {
