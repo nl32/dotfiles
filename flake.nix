@@ -41,6 +41,7 @@
       system = "aarch64-darwin";
       inherit config;
     };
+    specialArgs = {inherit inputs self;};
   in {
     inherit inputs;
     imports = [
@@ -56,7 +57,7 @@
     };
     nixosConfigurations = {
       lightstorm = inputs.nixpkgs.lib.nixosSystem {
-        inherit inputs;
+        inherit specialArgs;
         system = "x86_64-linux";
         pkgs = nixosPackages;
         modules = [
