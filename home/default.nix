@@ -11,7 +11,7 @@
 
   home.stateVersion = "23.11";
   home.username = "ebickel";
-  home.homeDirectory = "/home/ebickel/";
+  home.homeDirectory = "/home/ebickel";
 
   programs.home-manager.enable = true;
 }
