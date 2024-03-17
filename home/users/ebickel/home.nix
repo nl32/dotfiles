@@ -1,5 +1,4 @@
 {
-  inputs,
   config,
   lib,
   pkgs,
@@ -32,7 +31,5 @@
     ../../programs/ssh.nix
     ../../programs/firefox.nix
     ../../programs/hyprland
-    ../../programs/lock.nix
-    inputs.hyprlock.homeMangerModules.default
   ];
 }
