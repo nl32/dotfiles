@@ -25,7 +25,7 @@ in {
     openssl
     git
   ];
-  home-manger = {
+  home-manager = {
     users.ebickel.imports = homeImports."ebickel@lightstorm";
     extraSpecialArgs = specialArgs;
   };
