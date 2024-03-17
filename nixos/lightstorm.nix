@@ -8,7 +8,6 @@
   imports = [
     ./hardware/lightstorm.nix
     ./modules/common.nix
-    ./modules/system.nix
   ];
   environment.systemPackages = with pkgs; [
     neovim
@@ -19,6 +18,7 @@
     openssl
     git
   ];
+  networking.hostName = "lightstorm";
 
   services.openssh.enable = true;
   services.xserver = {
