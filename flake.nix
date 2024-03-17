@@ -56,6 +56,7 @@
     };
     nixosConfigurations = {
       lightstorm = inputs.nixpkgs.lib.nixosSystem {
+        inherit inputs;
         system = "x86_64-linux";
         pkgs = nixosPackages;
         modules = [
