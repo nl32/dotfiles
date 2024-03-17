@@ -1,5 +1,4 @@
 {lib, ...}: {
-  networking.hostName = "lightstorm";
   networking.networkmanager = {
     enable = true;
     dns = "systemd-resolved";

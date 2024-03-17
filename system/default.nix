@@ -3,6 +3,7 @@
     ./core/boot.nix
     ./core/default.nix
     ./network
+    ./network/avahi.nix
 
     ./programs
 
