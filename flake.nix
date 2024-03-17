@@ -62,6 +62,7 @@
         pkgs = nixosPackages;
         modules = [
           ./nixos/lightstorm.nix
+          home-manager.nixosModules.home-manager
         ];
       };
     };
