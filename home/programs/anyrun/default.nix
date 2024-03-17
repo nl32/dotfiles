@@ -9,7 +9,7 @@
     enable = true;
     config = {
       plugins = with inputs.anyrun.packages.${pkgs.system}; [
-        application
+        applications
         randr
         rink
         shell

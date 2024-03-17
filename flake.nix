@@ -23,9 +23,9 @@
     };
     anyrun.url = "github:fufexan/anyrun";
     ags = {
-        url = "github:Aylur/ags";
-        inputs.nixpkgs.follows = "nixpkgs"
-      };
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
