@@ -50,7 +50,7 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         ./home/profiles
-        ./nixos/lightstorm.nix
+        ./nixos
       ];
       flake = {
         homeConfigurations = {
