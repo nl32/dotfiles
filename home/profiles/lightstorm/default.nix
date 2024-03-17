@@ -17,7 +17,7 @@
     ../../programs/git.nix
     ../../programs/gh.nix
     ../../programs/ssh.nix
-    ../../programs/firefox.nix
+    ../../programs/browsers/firefox.nix
     ../../programs/wayland
     ../../programs
   ];
