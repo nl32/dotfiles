@@ -21,6 +21,11 @@
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    anyrun.url = "github:fufexan/anyrun";
+    ags = {
+        url = "github:Aylur/ags";
+        inputs.nixpkgs.follows = "nixpkgs"
+      };
   };
 
   outputs = {
