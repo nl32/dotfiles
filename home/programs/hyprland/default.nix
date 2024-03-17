@@ -7,7 +7,13 @@
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
-    systemd.enable = true;
+    systemd = {
+        varaibles = ["--all"];
+        extraCommands [
+        "systemctl --user stop graphical-session.target"
+        "systemctl --user start hyprland-session.target"
+        ];
+      };
   };
   home.packages = with pkgs; [
     wl-clip-persist
