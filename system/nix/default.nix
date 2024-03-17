@@ -6,6 +6,9 @@
   ...
 }: {
   environment.systemPackages = [pkgs.git];
+  imports = [
+    ./nixpkgs.nix
+  ];
   nix = {
     settings = {
       auto-optimise-store = true;
