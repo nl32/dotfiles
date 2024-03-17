@@ -1,4 +1,5 @@
 {
+  inputs,
   config,
   lib,
   pkgs,
@@ -32,5 +33,6 @@
     ../../programs/firefox.nix
     ../../programs/hyprland
     ../../programs/lock.nix
+    inputs.hyprlock.homeMangerModules.default
   ];
 }

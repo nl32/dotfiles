@@ -9,6 +9,10 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    hyprlock = {
+      url = "github:hyprwm/hyprlock";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -18,6 +22,7 @@
     home-manager,
     nixpkgs,
     nixos,
+    hyprlock,
   } @ inputs: let
     config = {
       allowUnfree = true;
