@@ -4,7 +4,7 @@
   xdg.portal = {
     enable = true;
     config.common.default = "*";
-    exptraPortals = [
+    extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-hyprland
     ];

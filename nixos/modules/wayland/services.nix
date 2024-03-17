@@ -1,14 +1,14 @@
-{pkgs,...}: {
+{pkgs, ...}: {
   systemd.services = {
     seatd = {
       enable = true;
       description = "Seat management daemon";
-      script = "${pkgs.seatd}/bin/seatd -g wheel"
-        serviceConfig = {
-          Type = "simple";
-          Restart = "always";
-          RestartSec = "1";
-        };
+      script = "${pkgs.seatd}/bin/seatd -g wheel";
+      serviceConfig = {
+        Type = "simple";
+        Restart = "always";
+        RestartSec = "1";
+      };
       wantedBy = ["multi-user.target"];
     };
   };
@@ -19,13 +19,13 @@
         initial_session = {
           command = "Hyprland";
           user = "ebickel";
-        }
+        };
         default_session = initial_session;
       };
     };
     gnome = {
       glib-networking.enable = true;
-      gnome-keyring.enable =true;
+      gnome-keyring.enable = true;
     };
   };
-            }
+}
