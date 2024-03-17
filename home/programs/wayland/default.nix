@@ -14,7 +14,6 @@
     slurp
 
     #utils
-    self.packages.${pkgs.system}.wl-ocr
     wl-clipboard
     wl-clip-persit
     cliphist
