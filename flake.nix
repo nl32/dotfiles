@@ -4,6 +4,10 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     devenv.url = "github:cachix/devenv/v0.6.3";
     flake-utils.url = "github:numtide/flake-utils";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -42,29 +46,30 @@
       inherit config;
     };
     specialArgs = {inherit inputs self;};
-  in {
-    inherit inputs;
-    imports = [
-      ./home/profiles
-    ];
-    homeConfigurations = {
-      "ethanbickel@Ethans-MacBook-Pro-2.local" = home-manager.lib.homeManagerConfiguration {
-        pkgs = darwinPackages;
-        modules = [
-          ./home/users/ethanbickel/home.nix
-        ];
+  in
+    inputs.flake-parts.lib.mkFlake {inherit inputs;} {
+      inherit inputs;
+      imports = [
+        ./home/profiles
+      ];
+      homeConfigurations = {
+        "ethanbickel@Ethans-MacBook-Pro-2.local" = home-manager.lib.homeManagerConfiguration {
+          pkgs = darwinPackages;
+          modules = [
+            ./home/users/ethanbickel/home.nix
+          ];
+        };
+      };
+      nixosConfigurations = {
+        lightstorm = inputs.nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          system = "x86_64-linux";
+          pkgs = nixosPackages;
+          modules = [
+            ./nixos/lightstorm.nix
+            home-manager.nixosModules.home-manager
+          ];
+        };
       };
     };
-    nixosConfigurations = {
-      lightstorm = inputs.nixpkgs.lib.nixosSystem {
-        inherit specialArgs;
-        system = "x86_64-linux";
-        pkgs = nixosPackages;
-        modules = [
-          ./nixos/lightstorm.nix
-          home-manager.nixosModules.home-manager
-        ];
-      };
-    };
-  };
 }
