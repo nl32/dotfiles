@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   services = {
     dbus.implementation = "broker";
-  };
-  psd = {
-    enable = true;
-    resysncTImer = "10m";
+    psd = {
+      enable = true;
+      resysncTImer = "10m";
+    };
   };
 }
