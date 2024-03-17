@@ -1,3 +1,3 @@
 {pkgs, ...}: {
-  imports = [./gtk.nix ./browsers/firefox.nix];
+  imports = [./gtk.nix ./browsers/firefox.nix ./anyrun];
 }
