@@ -17,6 +17,7 @@
         ./modules/system.nix
         ../system
         ../system/services/gnome-services.nix
+        ../system/programs
         {
           home-manager = {
             users.ebickel.imports = homeImports."ebickel@lightstorm";
