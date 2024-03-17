@@ -1,5 +1,16 @@
 {pkgs, ...}: {
   imports = [./fonts.nix ./services.nix ./pipewire.nix];
+  environment.etc."greetd/environments".text = ''
+    Hyprland
+  '';
+
+  environment = {
+    loginShellInit = ''
+      dbus-update-activation-environment --systemd DISPLAY
+      eval $(gnome-keyring-daemon --start --components=ssh,secrets)
+      eval $(ssh-agent)
+    '';
+  };
 
   xdg.portal = {
     enable = true;
