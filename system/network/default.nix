@@ -9,5 +9,5 @@
     };
     resolved.enable = true;
   };
-  systemd.services.NetworkManager-wait-online.enable = lib.mkForce false;
+  systemd.services.NetworkManager-wait-online.enable = lib.mkForce true;
 }
