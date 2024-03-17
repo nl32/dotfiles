@@ -2,7 +2,13 @@
   pkgs,
   lib,
   ...
-}: {
+}: let
+  bgImageSection = name: ''
+    #${name} {
+      background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/${name}.png"));
+    }
+  '';
+in {
   programs.wlogout = {
     enable = true;
 
@@ -30,7 +36,7 @@
         outline-style: none;
       }
 
-      ${lib.concatMapStringsSep "\n" [
+      ${lib.concatMapStringsSep "\n" bgImageSection [
         "lock"
         "logout"
         "suspend"
