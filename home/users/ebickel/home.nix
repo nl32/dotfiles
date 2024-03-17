@@ -31,5 +31,6 @@
     ../../programs/ssh.nix
     ../../programs/firefox.nix
     ../../programs/hyprland
+    ../../programs/lock.nix
   ];
 }
