@@ -38,6 +38,7 @@
       inherit config;
     };
   in {
+    inherit inputs;
     imports = [
       ./home/profiles
     ];
