@@ -38,6 +38,9 @@
       inherit config;
     };
   in {
+    imports = [
+      ./home/profiles
+    ];
     homeConfigurations = {
       "ethanbickel@Ethans-MacBook-Pro-2.local" = home-manager.lib.homeManagerConfiguration {
         pkgs = darwinPackages;
