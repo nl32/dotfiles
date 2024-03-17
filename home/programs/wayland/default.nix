@@ -15,7 +15,7 @@
 
     #utils
     wl-clipboard
-    wl-clip-persit
+    wl-clip-persist
     cliphist
     wl-screenrec
     wlr-randr
