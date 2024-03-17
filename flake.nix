@@ -23,6 +23,7 @@
     nixpkgs,
     nixos,
     hyprlock,
+    ...
   } @ inputs: let
     config = {
       allowUnfree = true;
@@ -33,26 +34,12 @@
       inherit config;
     };
 
-    x86Packages = import nixpkgs {
-      system = "x86_64-linux";
-      inherit config;
-    };
-    armPackages = import nixpkgs {
-      system = "aarch64-linux";
-      inherit config;
-    };
     darwinPackages = import nixpkgs {
       system = "aarch64-darwin";
       inherit config;
     };
   in {
     homeConfigurations = {
-      "ebickel@lightstorm" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixosPackages;
-        modules = [
-          ./home/users/ebickel/home.nix
-        ];
-      };
       "ethanbickel@Ethans-MacBook-Pro-2.local" = home-manager.lib.homeManagerConfiguration {
         pkgs = darwinPackages;
         modules = [
@@ -66,7 +53,6 @@
         pkgs = nixosPackages;
         modules = [
           ./nixos/lightstorm.nix
-          home-manager.nixosModules.home-manager
         ];
       };
     };
