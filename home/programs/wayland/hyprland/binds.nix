@@ -29,7 +29,7 @@ in {
       "$mod, l, movefocus, r"
     ];
     bindr = [
-      "$mod, SPACE, exec, pkill .anyrun-wrapped || run-as-service anyrun"
+      "$mod, D, exec, pkill .anyrun-wrapped || run-as-service anyrun"
     ];
   };
 }
