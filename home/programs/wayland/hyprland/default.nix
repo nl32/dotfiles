@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    inputs.hyprland.homeMangerModules.default
+    inputs.hyprland.homeManagerModules.default
     ./binds.nix
     ./rules.nix
     ./settings.nix
@@ -12,7 +12,7 @@
   home.packages = [
     inputs.hyprland-contrib.packages.${pkgs.system}.grimblast
   ];
-  wayland.windowManger.hyprland = {
+  wayland.windowManager.hyprland = {
     enable = true;
   };
   systemd = {
