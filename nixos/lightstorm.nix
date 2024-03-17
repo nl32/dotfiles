@@ -7,6 +7,8 @@
   imports = [
     ./hardware/lightstorm.nix
     ./modules/common.nix
+    ./modules/system.nix
+    ./modules/wayland
   ];
   environment.systemPackages = with pkgs; [
     neovim
