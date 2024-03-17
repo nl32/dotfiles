@@ -50,6 +50,7 @@
     inputs.flake-parts.lib.mkFlake {inherit inputs;} {
       imports = [
         ./home/profiles
+        ./nixos/lightstorm.nix
       ];
       flake = {
         homeConfigurations = {
@@ -57,17 +58,6 @@
             pkgs = darwinPackages;
             modules = [
               ./home/users/ethanbickel/home.nix
-            ];
-          };
-        };
-        nixosConfigurations = {
-          lightstorm = inputs.nixpkgs.lib.nixosSystem {
-            inherit specialArgs;
-            system = "x86_64-linux";
-            pkgs = nixosPackages;
-            modules = [
-              ./nixos/lightstorm.nix
-              home-manager.nixosModules.home-manager
             ];
           };
         };
