@@ -2,14 +2,19 @@
   config,
   pkgs,
   lib,
+  homeImports,
+  self,
+  inputs,
   ...
-}: {
+}: let
+  specialArgs = {inherit inputs self;};
+in {
   imports = [
     ./hardware/lightstorm.nix
     ./modules/common.nix
     ./modules/system.nix
-    ./modules/wayland
     ../system
+    ../system/services/gnome-services.nix
   ];
   environment.systemPackages = with pkgs; [
     neovim
@@ -20,7 +25,10 @@
     openssl
     git
   ];
-
+  home-manger = {
+    users.ebickel.imports = homeImports."ebickel@lightstorm";
+    extraSpecialArgs = specialArgs;
+  };
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
   services.openssh.enable = true;
