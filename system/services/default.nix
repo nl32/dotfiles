@@ -3,7 +3,7 @@
     dbus.implementation = "broker";
     psd = {
       enable = true;
-      resysncTimer = "10m";
+      resyncTimer = "10m";
     };
   };
 }
