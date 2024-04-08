@@ -39,3 +39,8 @@ vim.opt.undofile = true
 -- Diagnostics
 
 vim.diagnostic.config({})
+
+-- patterns
+vim.filetype.add({
+  pattern = { [".*/hypr/.*%.conf"] = "hyprlang" }
+})
